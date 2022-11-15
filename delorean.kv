@@ -2,14 +2,18 @@
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
+        spacing: 10
+
         Image:
             source: 'images/delorean.jpg'
             allow_stretch: True
             keep_ration: True
+
         Button:
             text: 'Get started'
             size_hint: (1, .2)
             on_press: root.manager.current = 'menu'
+
 <MenuScreen>:
     BoxLayout:
         orientation: "vertical"
@@ -36,12 +40,21 @@
         pos: self.pos
         size: root.size
         id: test2
+        spacing: 25
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'images/delorean.jpg'
+
 
         Button:
             size_hint:0.2,0.2
             pos_hint : {'center_x':.1, 'center_y':.1}
             text: 'Bring me back'
             on_press: root.manager.current = 'menu'
+
         TextInput:
             multiline:False
             id: Email
@@ -50,6 +63,7 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             height:0.5
+
         TextInput:
             multiline:False
             id: password
@@ -57,13 +71,13 @@
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
+            spacing: 50
+
         Button:
             text: 'Log In'
             on_press: root.manager.current = 'homescreen'
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
-
-
 
 <RegisterScreen>:
     BoxLayout:
@@ -71,27 +85,36 @@
         pos: self.pos
         size: root.size
         id: test2
+        spacing: 25
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'images/delorean.jpg'
 
         Button:
             size_hint:0.2,0.2
             pos_hint : {'center_x':.1, 'center_y':.1}
             text: 'Bring me back'
             on_press: root.manager.current = 'menu'
-        TextInput:
 
+        TextInput:
             multiline:False
             id: Username
             hint_text:'Create your username'
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
+
         TextInput:
             multiline:False
             id: email
-            hint_text:'Enter enter you email'
+            hint_text:'Enter your email'
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
+
         TextInput:
             multiline:False
             id: password
@@ -99,6 +122,14 @@
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint:0.5, 0.5
+
+        TextInput:
+            multiline: False
+            id: password_confirm
+            hint_text: 'Confirm your password'
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
 
         Button:
             text: 'Register'
@@ -112,8 +143,22 @@
         pos: self.pos
         size: root.size
         id: test2
-    Label:
-        text:'WELCOME!'
 
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'images/delorean.jpg'
 
+        Label:
+            text:'WELCOME!'
+            font_size: 45
+            bold: True
+            italic: True
+            outline_color: (0,0,0)
+            outline_width: 2
 
+        Button:
+            text: 'take me back to the first screen'
+            on_press: root.manager.current = 'welcome'
+            size_hint: 1, .2
