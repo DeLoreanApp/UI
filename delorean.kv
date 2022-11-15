@@ -1,38 +1,119 @@
 <WelcomeScreen>:
-    orientation: "vertical"
-    size: root.width, root.height
     BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
         Image:
             source: 'images/delorean.jpg'
             allow_stretch: True
             keep_ration: True
         Button:
             text: 'Get started'
+            size_hint: (1, .2)
             on_press: root.manager.current = 'menu'
-
 <MenuScreen>:
-    orientation: "vertical"
-    size: root.width, root.height
     BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Image:
+            source: 'images/delorean.jpg'
+            allow_stretch: True
+            keep_ration: True
+
         Button:
             text: 'Register'
+            size_hint: (1, .2)
             on_press: root.manager.current = 'register'
+
         Button:
             text: 'Login'
+            size_hint: (1, .2)
             on_press: root.manager.current = 'login'
 
 <LoginScreen>:
     BoxLayout:
-        Label:
-            text: 'Login Screen'
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+
         Button:
+            size_hint:0.2,0.2
+            pos_hint : {'center_x':.1, 'center_y':.1}
             text: 'Bring me back'
             on_press: root.manager.current = 'menu'
+        TextInput:
+            multiline:False
+            id: Email
+            hint_text:'Email or Username'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+        TextInput:
+            multiline:False
+            id: password
+            hint_text:'Enter your password'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+        Button:
+            text: 'Log In'
+            on_press: root.manager.current = 'homescreen'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+
+
 
 <RegisterScreen>:
     BoxLayout:
-        Label:
-            text: 'Register Screen'
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+
         Button:
+            size_hint:0.2,0.2
+            pos_hint : {'center_x':.1, 'center_y':.1}
             text: 'Bring me back'
             on_press: root.manager.current = 'menu'
+        TextInput:
+
+            multiline:False
+            id: Username
+            hint_text:'Create your username'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+        TextInput:
+            multiline:False
+            id: email
+            hint_text:'Enter enter you email'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+        TextInput:
+            multiline:False
+            id: password
+            hint_text:'Enter your password'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint:0.5, 0.5
+
+        Button:
+            text: 'Register'
+            on_press: root.manager.current = 'homescreen'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+    Label:
+        text:'WELCOME!'
+
+
+
