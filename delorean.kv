@@ -1,0 +1,38 @@
+<WelcomeScreen>:
+    orientation: "vertical"
+    size: root.width, root.height
+    BoxLayout:
+        Image:
+            source: 'images/delorean.jpg'
+            allow_stretch: True
+            keep_ration: True
+        Button:
+            text: 'Get started'
+            on_press: root.manager.current = 'menu'
+
+<MenuScreen>:
+    orientation: "vertical"
+    size: root.width, root.height
+    BoxLayout:
+        Button:
+            text: 'Register'
+            on_press: root.manager.current = 'register'
+        Button:
+            text: 'Login'
+            on_press: root.manager.current = 'login'
+
+<LoginScreen>:
+    BoxLayout:
+        Label:
+            text: 'Login Screen'
+        Button:
+            text: 'Bring me back'
+            on_press: root.manager.current = 'menu'
+
+<RegisterScreen>:
+    BoxLayout:
+        Label:
+            text: 'Register Screen'
+        Button:
+            text: 'Bring me back'
+            on_press: root.manager.current = 'menu'
