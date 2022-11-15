@@ -21,6 +21,8 @@ class LoginScreen(Screen):
 class RegisterScreen(Screen):
     pass
 
+class HomeScreen(Screen):
+    pass
 
 class MyApp(App):
     def build(self):
@@ -30,6 +32,7 @@ class MyApp(App):
         sm.add_widget(MenuScreen(name='menu'))
         sm.add_widget(LoginScreen(name='login'))
         sm.add_widget(RegisterScreen(name='register'))
+        sm.add_widget(HomeScreen(name='homescreen'))
 
         return sm
 
