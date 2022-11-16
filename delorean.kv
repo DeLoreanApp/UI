@@ -1,59 +1,74 @@
-<WelcomeScreen>:
+
+
+<WelcomeScreen>
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
-        spacing: 10
-
-        Image:
-            source: 'images/delorean.jpg'
-            allow_stretch: True
-            keep_ration: True
 
         Button:
             text: 'Get started'
-            size_hint: (1, .2)
             on_press: root.manager.current = 'menu'
+            background_color: 0,0,0,0
 
-<MenuScreen>:
+            Image:
+                source: 'images/delorean.jpg'
+                allow_stretch: True
+                size: self.parent.size
+
+<MenuScreen>
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
-
-        Image:
-            source: 'images/delorean.jpg'
-            allow_stretch: True
-            keep_ration: True
-
-        Button:
-            text: 'Register'
-            size_hint: (1, .2)
-            on_press: root.manager.current = 'register'
+        padding: 100
 
         Button:
             text: 'Login'
-            size_hint: (1, .2)
+            font_size: 40
+            size_hint: (1, 0.5)
             on_press: root.manager.current = 'login'
+            background_color: 0,0,0,0
 
-<LoginScreen>:
+        Button:
+            text: 'Sign Up'
+            font_size: 40
+            size_hint: (1, 0.5)
+            on_press: root.manager.current = 'register'
+            background_color: 0,0,0,0
+
+<LoginScreen>
     BoxLayout:
         orientation: 'vertical'
         pos: self.pos
         size: root.size
         id: test2
-        spacing: 25
-
-        canvas.before:
-            Rectangle:
-                pos: self.pos
-                size: self.size
-                source: 'images/delorean.jpg'
-
+        spacing: 10
+        padding: 50
 
         Button:
-            size_hint:0.2,0.2
-            pos_hint : {'center_x':.1, 'center_y':.1}
-            text: 'Bring me back'
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
             on_press: root.manager.current = 'menu'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Label:
+            text: 'DeLorean'
+            font_size: 40
+            bold: True
+
+        Label:
+            text: 'Welcome back!'
+            font_size: 24
+            bold: True
+
+        Label:
+            text: 'Email or Username'
+            halign: 'left'
+            size_hint: 0.67, 0.5
 
         TextInput:
             multiline:False
@@ -63,6 +78,11 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             height:0.5
+
+        Label:
+            text: 'Password'
+            halign: 'left'
+            size_hint: 0.595, 0.5
 
         TextInput:
             multiline:False
@@ -78,26 +98,37 @@
             on_press: root.manager.current = 'homescreen'
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
+            background_color: 152/255, 23/255, 103/255, 1
 
-<RegisterScreen>:
+<RegisterScreen>
     BoxLayout:
         orientation: 'vertical'
         pos: self.pos
         size: root.size
         id: test2
-        spacing: 25
-
-        canvas.before:
-            Rectangle:
-                pos: self.pos
-                size: self.size
-                source: 'images/delorean.jpg'
+        spacing: 10
+        padding: 50
 
         Button:
-            size_hint:0.2,0.2
-            pos_hint : {'center_x':.1, 'center_y':.1}
-            text: 'Bring me back'
+            size_hint:0.2,0.4
+            pos_hint : {'center_x': .05, 'center_y':.1}
             on_press: root.manager.current = 'menu'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Label:
+            text: 'DeLorean'
+            font_size: 40
+            bold: True
+
+        Image:
+            source: 'images/delorean.jpg'
+            allow_stretch: True
+            keep_ratio: True
 
         TextInput:
             multiline:False
@@ -132,12 +163,27 @@
             size_hint: 0.5, 0.5
 
         Button:
-            text: 'Register'
+            text: 'Sign Up'
             on_press: root.manager.current = 'homescreen'
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
+            background_color: 152/255, 23/255, 103/255, 1
 
-<HomeScreen>:
+        GridLayout:
+            cols: 2
+            size_hint: 0.35, 0.5
+            pos_hint: {'center_x': 0.35, 'center_y': 0.705}
+            CheckBox:
+                pos_hint: {'right': 1}
+
+            Label:
+                text: 'I accept the "Terms & Conditions'
+                pos_hint: {'left': 1}
+                halign: 'left'
+
+
+
+<HomeScreen>
     BoxLayout:
         orientation: 'vertical'
         pos: self.pos
