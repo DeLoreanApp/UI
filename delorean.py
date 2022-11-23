@@ -25,7 +25,7 @@ class LoginScreen(Screen):
         password = self.ids.password.text
 
         global user
-        user = APICalls().login({'email_or_username': username, 'password': password})['data']
+        user = APICalls().login({'email_or_username': username, 'password': password})['data']['user']
         print('user =', user)
 
 
@@ -38,7 +38,7 @@ class RegisterScreen(Screen):
 
         if password == password_confirm:
             global user
-            user = APICalls().register({"username": username, "email": email, "password": password})['data']
+            user = APICalls().register({"username": username, "email": email, "password": password})['data']['user']
             print('user =', user)
 
 
