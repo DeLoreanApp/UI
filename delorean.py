@@ -46,6 +46,18 @@ class HomeScreen(Screen):
     pass
 
 
+class LeaderboardScreen(Screen):
+    pass
+
+
+class MapScreen(Screen):
+    pass
+
+
+class CameraScreen(Screen):
+    pass
+
+
 class ProfileScreen(Screen):
     username = StringProperty()
     email = StringProperty()
@@ -66,6 +78,10 @@ class MyVisits(Screen):
     pass
 
 
+class SettingsScreen(Screen):
+    pass
+
+
 class MyApp(App):
     def build(self):
         # Create the screen manager
@@ -75,10 +91,14 @@ class MyApp(App):
         sm.add_widget(LoginScreen(name='login'))
         sm.add_widget(RegisterScreen(name='register'))
         sm.add_widget(HomeScreen(name='homescreen'))
+        sm.add_widget(LeaderboardScreen(name='leaderboard'))
+        sm.add_widget(MapScreen(name='map'))
+        sm.add_widget(CameraScreen(name='camera'))
         sm.add_widget(ProfileScreen(name='profile'))
         sm.add_widget(EditProfile(name='editprofile'))
         sm.add_widget(FriendsList(name='friends'))
         sm.add_widget(MyVisits(name='myvisits'))
+        sm.add_widget(SettingsScreen(name='settings'))
 
         return sm
 

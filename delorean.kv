@@ -212,10 +212,277 @@
             outline_color: (0,0,0)
             outline_width: 2
 
+
+
+    GridLayout:
+        cols: 5
+        size_hint: 1, 0.05
+
         Button:
-            text: 'Visit my Profile'
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'leaderboard'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/leaderboard.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'map'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/map.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'camera'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/camera.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
             on_press: root.manager.current = 'profile'
-            size_hint: 1, .2
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/profile_icon.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/settings.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+<LeaderboardScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
+
+        Label:
+            text: 'Leaderboard'
+
+    GridLayout:
+        cols: 5
+        size_hint: 1, 0.05
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'leaderboard'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/leaderboard.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'map'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/map.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'camera'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/camera.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/profile_icon.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/settings.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+<MapScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
+
+        Label:
+            text: 'map'
+
+    GridLayout:
+        cols: 5
+        size_hint: 1, 0.05
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'leaderboard'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/leaderboard.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'map'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/map.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'camera'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/camera.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/profile_icon.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/settings.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+<CameraScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
+
+        Label:
+            text: 'Camera'
+
+    GridLayout:
+        cols: 5
+        size_hint: 1, 0.05
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'leaderboard'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/leaderboard.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'map'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/map.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'camera'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/camera.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/profile_icon.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/settings.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
 
 <ProfileScreen>
     on_enter: root.get_user()
@@ -224,7 +491,7 @@
         pos: self.pos
         size: root.size
         id: test2
-        spacing: 10
+        spacing: 20
         padding: 50
 
         Button:
@@ -285,6 +552,66 @@
             background_color: 152/255, 23/255, 103/255, 1
 
 
+    GridLayout:
+        cols: 5
+        size_hint: 1, 0.05
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'leaderboard'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/leaderboard.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'map'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/map.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'camera'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/camera.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/profile_icon.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/settings.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+
 
 <EditProfile>
     BoxLayout:
@@ -318,7 +645,7 @@
                 pos: self.parent.pos
 
         Label:
-            text:'My firends'
+            text:'My friends'
             font_size: 25
             bold : True
 
@@ -381,7 +708,75 @@
                 text: 'Their points'
                 size_hint_x: 0.5
 
+<SettingsScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
 
+        Label:
+            text: 'Settings'
+
+    GridLayout:
+        cols: 5
+        size_hint: 1, 0.05
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'leaderboard'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/leaderboard.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'map'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/map.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'camera'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/camera.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/profile_icon.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.2,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 152/255, 23/255, 103/255, 1
+
+            Image:
+                source: 'images/settings.png'
+                size: self.parent.size
+                pos: self.parent.pos
 
 
 
