@@ -205,6 +205,173 @@
             outline_width: 2
 
         Button:
-            text: 'take me back to the first screen'
-            on_press: root.manager.current = 'welcome'
+            text: 'Visit my Profile'
+            on_press: root.manager.current = 'profile'
             size_hint: 1, .2
+
+<ProfileScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+        spacing: 10
+        padding: 50
+
+        Button:
+            size_hint:0.3,0.3
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'homescreen'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Button:
+            size_hint:0.3,0.3
+            pos_hint : {'center_x': 0.95, 'center_y':.1}
+            on_press: root.manager.current = 'editprofile'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/settings.jpg'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Image:
+            size_hint:0.5,0.5
+            pos_hint : {'center_x': 0.5, 'center_y':.5}
+            source: 'images/profile.png'
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text: '@Username'
+            font_size: 35
+            bold: True
+
+        Label:
+            text: 'namesurname@gmail.com'
+            font_size: 15
+            bold: False
+
+
+        Button:
+            text: 'Friends List'
+            on_press: root.manager.current = 'friends'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.4, 0.5
+            background_color: 152/255, 23/255, 103/255, 1
+
+
+        Button:
+            text: 'My Visits'
+            on_press: root.manager.current = 'myvisits'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.4, 0.5
+            background_color: 152/255, 23/255, 103/255, 1
+
+
+
+<EditProfile>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+
+        Label:
+            text:'Edit profile info'
+            font_size:20
+
+<FriendsList>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+        spacing: 10
+        padding: 50
+
+        Button:
+            size_hint:0.2,0.2
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Label:
+            text:'My firends'
+            font_size: 25
+            bold : True
+
+        GridLayout:
+            cols: 4
+            row_default_height: '32dp'
+            row_force_default: True
+            spacing: 10,0
+            size_hint_y: None
+            #height:34
+
+            Label:
+                text: 'Friends'
+                size_hint_x: 0.5
+
+            Label:
+                text: 'Their points'
+                size_hint_x: 0.5
+
+
+
+<MyVisits>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
+        spacing: 10
+        padding: 50
+
+        Button:
+            size_hint:0.2,0.2
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'profile'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+        Label:
+            text:'My Visits'
+            font_size: 25
+            bold : True
+
+        GridLayout:
+            cols: 4
+            row_default_height: '32dp'
+            row_force_default: True
+            spacing: 10,0
+            size_hint_y: None
+            #height:34
+
+            Label:
+                text: 'Friends'
+                size_hint_x: 0.5
+
+            Label:
+                text: 'Their points'
+                size_hint_x: 0.5
+
+
+
+
+
+
