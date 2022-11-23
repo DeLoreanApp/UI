@@ -23,6 +23,17 @@ class RegisterScreen(Screen):
 
 class HomeScreen(Screen):
     pass
+class ProfileScreen(Screen):
+    pass
+
+class EditProfile(Screen):
+    pass
+
+class FriendsList(Screen):
+    pass
+
+class MyVisits(Screen):
+    pass
 
 class MyApp(App):
     def build(self):
@@ -33,6 +44,10 @@ class MyApp(App):
         sm.add_widget(LoginScreen(name='login'))
         sm.add_widget(RegisterScreen(name='register'))
         sm.add_widget(HomeScreen(name='homescreen'))
+        sm.add_widget(ProfileScreen(name='profile'))
+        sm.add_widget(EditProfile(name='editprofile'))
+        sm.add_widget(FriendsList(name='friends'))
+        sm.add_widget(MyVisits(name='myvisits'))
 
         return sm
 
