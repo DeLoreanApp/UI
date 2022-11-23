@@ -72,7 +72,7 @@
 
         TextInput:
             multiline:False
-            id: Email
+            id: email_or_username
             hint_text:'Email or Username'
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
@@ -92,6 +92,8 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             spacing: 50
+            password: True
+            password_mask: '*'
 
         Button:
             text: 'Log In'
@@ -99,6 +101,7 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             background_color: 152/255, 23/255, 103/255, 1
+            on_press: root.login()
 
 <RegisterScreen>
     BoxLayout:
@@ -132,7 +135,7 @@
 
         TextInput:
             multiline:False
-            id: Username
+            id: username
             hint_text:'Create your username'
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
@@ -153,6 +156,8 @@
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint:0.5, 0.5
+            password: True
+            password_mask: '*'
 
         TextInput:
             multiline: False
@@ -161,6 +166,8 @@
             halign: 'center'
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
+            password: True
+            password_mask: '*'
 
         Button:
             text: 'Sign Up'
@@ -168,6 +175,7 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             background_color: 152/255, 23/255, 103/255, 1
+            on_press: root.register()
 
         GridLayout:
             cols: 2
@@ -210,6 +218,7 @@
             size_hint: 1, .2
 
 <ProfileScreen>
+    on_enter: root.get_user()
     BoxLayout:
         orientation: 'vertical'
         pos: self.pos
@@ -248,12 +257,14 @@
             keep_ratio: True
 
         Label:
-            text: '@Username'
+            text: root.username
+            id: 'username'
             font_size: 35
             bold: True
 
         Label:
-            text: 'namesurname@gmail.com'
+            text: root.email
+            id: 'email'
             font_size: 15
             bold: False
 

@@ -1,9 +1,14 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
+from api_calls import APICalls
+from kivy.properties import StringProperty
 
 Builder.load_file('delorean.kv')
+
+global user
+user = {}
 
 
 class WelcomeScreen(Screen):
@@ -15,25 +20,51 @@ class MenuScreen(Screen):
 
 
 class LoginScreen(Screen):
-    pass
+    def login(self):
+        username = self.ids.email_or_username.text
+        password = self.ids.password.text
+
+        global user
+        user = APICalls().login({'email_or_username': username, 'password': password})['data']
+        print('user =', user)
 
 
 class RegisterScreen(Screen):
-    pass
+    def register(self):
+        username = self.ids.username.text
+        email = self.ids.email.text
+        password = self.ids.password.text
+        password_confirm = self.ids.password_confirm.text
+
+        if password == password_confirm:
+            global user
+            user = APICalls().register({"username": username, "email": email, "password": password})['data']
+            print('user =', user)
+
 
 class HomeScreen(Screen):
     pass
+
+
 class ProfileScreen(Screen):
-    pass
+    username = StringProperty()
+    email = StringProperty()
+    def get_user(self):
+        self.username = f"@{user['username']}"
+        self.email = f"{user['email']}"
+
 
 class EditProfile(Screen):
     pass
 
+
 class FriendsList(Screen):
     pass
 
+
 class MyVisits(Screen):
     pass
+
 
 class MyApp(App):
     def build(self):
