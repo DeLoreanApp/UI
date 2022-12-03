@@ -421,8 +421,16 @@
         spacing: 10
         padding: 50
 
-        Label:
-            text: 'Camera'
+        Image:
+            source: 'images/delorean.jpg'
+            allow_stretch: True
+            keep_ration: True
+
+        Button:
+            text: 'Play Game'
+            size_hint: .3, .2
+            pos_hint: {'x': 0.35}
+            background_color: 152/255, 23/255, 103/255, 1
 
     GridLayout:
         cols: 5

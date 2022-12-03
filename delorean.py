@@ -24,9 +24,14 @@ class LoginScreen(Screen):
         username = self.ids.email_or_username.text
         password = self.ids.password.text
 
-        global user
-        user = APICalls().login({'email_or_username': username, 'password': password})['data']['user']
-        print('user =', user)
+        try:
+
+            global user
+            user = APICalls().login({'email_or_username': username, 'password': password})['data']['user']
+            print('user =', user)
+
+        except KeyError:
+            print("lol")
 
 
 class RegisterScreen(Screen):
@@ -52,7 +57,6 @@ class LeaderboardScreen(Screen):
 
 class MapScreen(Screen):
     pass
-
 
 class CameraScreen(Screen):
     pass
