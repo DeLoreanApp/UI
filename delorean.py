@@ -4,6 +4,9 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from api_calls import APICalls
 from kivy.properties import StringProperty
+from kivy_garden.mapview import MapView
+from kivy.app import App
+
 
 Builder.load_file('delorean.kv')
 
@@ -57,6 +60,7 @@ class LeaderboardScreen(Screen):
 
 class MapScreen(Screen):
     pass
+
 
 class CameraScreen(Screen):
     pass

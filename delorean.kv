@@ -344,15 +344,10 @@
                 pos: self.parent.pos
 
 <MapScreen>
-    BoxLayout:
-        orientation: 'vertical'
-        pos: self.pos
-        size: root.size
-        spacing: 10
-        padding: 50
-
-        Label:
-            text: 'map'
+    MapView:
+        lat: 48.4086
+        lon: 15.5882
+        zoom: 20
 
     GridLayout:
         cols: 5
