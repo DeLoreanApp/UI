@@ -90,7 +90,7 @@ class SettingsScreen(Screen):
     pass
 
 
-class MyApp(App):
+class DeLoreanApp(App):
     def build(self):
         # Create the screen manager
         sm = ScreenManager()
@@ -112,4 +112,4 @@ class MyApp(App):
 
 
 if __name__ == '__main__':
-    MyApp().run()
+    DeLoreanApp().run()
