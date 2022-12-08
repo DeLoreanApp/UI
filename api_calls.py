@@ -3,7 +3,7 @@ import requests
 
 class APICalls:
     def __init__(self):
-        self.URL = "http://127.0.0.1:8000{}"
+        self.URL = "https://delorian-api.herokuapp.com{}"
 
     def register(self, params):
         r = requests.post(self.URL.format("/register"), json=params)
