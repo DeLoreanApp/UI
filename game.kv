@@ -1,12 +1,4 @@
-ScreenManagement:
-    HomePage:
-    Q1:
-    Q2:
-    Q3:
-    FinalPage:
-
-
-<HomePage>:
+<GameHomePage>:
     name:'home'
     canvas.before:
         Rectangle:
@@ -67,7 +59,7 @@ ScreenManagement:
             anchor_y:'bottom'
             BoxLayout:
                 Button:
-                    on_release:app.root.current = 'home'
+                    on_release:app.root.current = 'game_home'
                     background_normal:'images/game/backbtn.png'
                     background_down:'images/game/backbtn.png'
                 Button:
@@ -180,11 +172,11 @@ ScreenManagement:
                     background_normal:'images/game/backbtn.png'
                     background_down:'images/game/backbtn.png'
                 Button:
-                    on_release:app.root.current = 'final'
+                    on_release:app.root.current = 'game_final'
                     background_normal:'images/game/nextbtn.png'
                     background_down:'images/game/nextbtn.png'
 
-<FinalPage>:
+<GameFinalPage>:
     name:'final'
     canvas.before:
         Rectangle:
@@ -201,6 +193,6 @@ ScreenManagement:
         Button:
             size_hint:0.4,0.15
             pos_hint: {"x":0.55,"y":0.025}
-            on_release:app.root.current = 'home'
+            on_release: root.reset_window_size(); app.root.current = 'camera'
             background_normal:'images/game/homebtn.png'
             background_down:'images/game/homebtn.png'

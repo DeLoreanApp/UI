@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
@@ -9,8 +10,10 @@ from kivy.app import App
 
 
 Builder.load_file('delorean.kv')
+Builder.load_file('game.kv')
 
 global user
+main_window_size = Window.size
 user = {}
 
 
@@ -30,7 +33,7 @@ class LoginScreen(Screen):
         try:
 
             global user
-            user = APICalls().login({'email_or_username': username, 'password': password})['data']['user']
+            user = APICalls().login({'email_or_username': username, 'password': password})['user']
             print('user =', user)
 
         except KeyError:
@@ -46,7 +49,7 @@ class RegisterScreen(Screen):
 
         if password == password_confirm:
             global user
-            user = APICalls().register({"username": username, "email": email, "password": password})['data']['user']
+            user = APICalls().register({"username": username, "email": email, "password": password})['user']
             print('user =', user)
 
 
@@ -63,6 +66,11 @@ class MapScreen(Screen):
 
 
 class CameraScreen(Screen):
+
+    def change_window_size(self):
+        global main_window_size
+        Window.size = (412, 732)
+
     pass
 
 
@@ -89,6 +97,23 @@ class MyVisits(Screen):
 class SettingsScreen(Screen):
     pass
 
+class GameHomePage(Screen):
+    pass
+
+class Q1(Screen):
+    pass
+
+class Q2(Screen):
+    pass
+
+class Q3(Screen):
+    pass
+
+class GameFinalPage(Screen):
+    def reset_window_size(self):
+        global main_window_size
+        Window.size = main_window_size
+    pass
 
 class DeLoreanApp(App):
     def build(self):
@@ -107,6 +132,11 @@ class DeLoreanApp(App):
         sm.add_widget(FriendsList(name='friends'))
         sm.add_widget(MyVisits(name='myvisits'))
         sm.add_widget(SettingsScreen(name='settings'))
+        sm.add_widget(GameHomePage(name="game_home"))
+        sm.add_widget(Q1(name="q1"))
+        sm.add_widget(Q2(name="q2"))
+        sm.add_widget(Q3(name="q3"))
+        sm.add_widget(GameFinalPage(name="game_final"))
 
         return sm
 

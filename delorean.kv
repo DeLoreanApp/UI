@@ -1,5 +1,3 @@
-
-
 <WelcomeScreen>
     BoxLayout:
         orientation: "vertical"
@@ -415,6 +413,7 @@
         size_hint: .3, .2
         pos_hint: {'x': 0.35}
         background_color: 152/255, 23/255, 103/255, 1
+        on_press: root.change_window_size(); root.manager.current =  "game_home"
 
     GridLayout:
         cols: 5
