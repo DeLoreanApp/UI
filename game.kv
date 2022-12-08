@@ -11,15 +11,15 @@ ScreenManagement:
     canvas.before:
         Rectangle:
             size:self.size
-            source: 'home.png'
+            source: 'images/game/home.png'
         
     
     Button:
         on_release:app.root.current = 'q1'
         size_hint:0.7,0.45
         pos_hint: {"x":0.15,"y":0.15}
-        background_normal:'btn.png'
-        background_down:'btn.png'
+        background_normal:'images/game/btn.png'
+        background_down:'images/game/btn.png'
                   
 <Q1>:
     name:'q1'
@@ -68,12 +68,12 @@ ScreenManagement:
             BoxLayout:
                 Button:
                     on_release:app.root.current = 'home'
-                    background_normal:'backbtn.png'
-                    background_down:'backbtn.png'
+                    background_normal:'images/game/backbtn.png'
+                    background_down:'images/game/backbtn.png'
                 Button:
                     on_release:app.root.current = 'q2'
-                    background_normal:'nextbtn.png'
-                    background_down:'nextbtn.png'
+                    background_normal:'images/game/nextbtn.png'
+                    background_down:'images/game/nextbtn.png'
 
 <Q2>:
     name:'q2'
@@ -122,12 +122,12 @@ ScreenManagement:
             BoxLayout:
                 Button:
                     on_release:app.root.current = 'q1'
-                    background_normal:'backbtn.png'
-                    background_down:'backbtn.png'
+                    background_normal:'images/game/backbtn.png'
+                    background_down:'images/game/backbtn.png'
                 Button:
                     on_release:app.root.current = 'q3'
-                    background_normal:'nextbtn.png'
-                    background_down:'nextbtn.png'
+                    background_normal:'images/game/nextbtn.png'
+                    background_down:'images/game/nextbtn.png'
 
 <Q3>:
     name:'q3'
@@ -177,30 +177,30 @@ ScreenManagement:
             BoxLayout:
                 Button:
                     on_release:app.root.current = 'q2'
-                    background_normal:'backbtn.png'
-                    background_down:'backbtn.png'
+                    background_normal:'images/game/backbtn.png'
+                    background_down:'images/game/backbtn.png'
                 Button:
                     on_release:app.root.current = 'final'
-                    background_normal:'nextbtn.png'
-                    background_down:'nextbtn.png'
+                    background_normal:'images/game/nextbtn.png'
+                    background_down:'images/game/nextbtn.png'
 
 <FinalPage>:
     name:'final'
     canvas.before:
         Rectangle:
             size:self.size
-            source: 'final.png'
+            source: 'images/game/final.png'
 
     FloatLayout:
         Button:
             size_hint:0.4,0.15
             pos_hint: {"x":0.03,"y":0.025} 
             on_release:app.root.current = 'q3'
-            background_normal:'backbtn.png'
-            background_down:'backbtn.png'
+            background_normal:'images/game/backbtn.png'
+            background_down:'images/game/backbtn.png'
         Button:
             size_hint:0.4,0.15
             pos_hint: {"x":0.55,"y":0.025}
             on_release:app.root.current = 'home'
-            background_normal:'homebtn.png'
-            background_down:'homebtn.png'
+            background_normal:'images/game/homebtn.png'
+            background_down:'images/game/homebtn.png'
