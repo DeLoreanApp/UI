@@ -407,13 +407,28 @@
                 pos: self.parent.pos
 
 <CameraScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        Camera:
+            id: camera
+            play: False
+        ToggleButton:
+            text: 'Play'
+            on_press: camera.play = not camera.play
+            size_hint_y: None
+            height: '48dp'
+        Button:
+            text: 'Capture'
+            size_hint_y: None
+            height: '48dp'
+            on_press: root.capture()
 
-    Button:
-        text: 'Play Game'
-        size_hint: .3, .2
-        pos_hint: {'x': 0.35}
-        background_color: 152/255, 23/255, 103/255, 1
-        on_press: root.change_window_size(); root.manager.current =  "game_home"
+        Button:
+            text: 'Play Game'
+            size_hint: .3, .2
+            pos_hint: {'x': 0.35}
+            background_color: 152/255, 23/255, 103/255, 1
+            on_press: root.change_window_size(); root.manager.current =  "game_home"
 
     GridLayout:
         cols: 5
