@@ -430,64 +430,64 @@
             background_color: 152/255, 23/255, 103/255, 1
             on_press: root.change_window_size(); root.manager.current =  "game_home"
 
-    GridLayout:
-        cols: 5
-        size_hint: 1, 0.05
+        GridLayout:
+            cols: 5
+            size_hint: 1, 0.05
 
-        Button:
-            size_hint:0.2,0.3
-            pos_hint : {'center_x': .05, 'center_y':.1}
-            on_press: root.manager.current = 'leaderboard'
-            background_color: 255/255, 210/255, 20/255, 1
+            Button:
+                size_hint:0.2,0.3
+                pos_hint : {'center_x': .05, 'center_y':.1}
+                on_press: root.manager.current = 'leaderboard'
+                background_color: 255/255, 210/255, 20/255, 1
 
-            Image:
-                source: 'images/leaderboard.png'
-                size: self.parent.size
-                pos: self.parent.pos
+                Image:
+                    source: 'images/leaderboard.png'
+                    size: self.parent.size
+                    pos: self.parent.pos
 
-        Button:
-            size_hint:0.2,0.3
-            pos_hint : {'center_x': .05, 'center_y':.1}
-            on_press: root.manager.current = 'map'
-            background_color: 255/255, 210/255, 20/255, 1
+            Button:
+                size_hint:0.2,0.3
+                pos_hint : {'center_x': .05, 'center_y':.1}
+                on_press: root.manager.current = 'map'
+                background_color: 255/255, 210/255, 20/255, 1
 
-            Image:
-                source: 'images/map.png'
-                size: self.parent.size
-                pos: self.parent.pos
+                Image:
+                    source: 'images/map.png'
+                    size: self.parent.size
+                    pos: self.parent.pos
 
-        Button:
-            size_hint:0.2,0.3
-            pos_hint : {'center_x': .05, 'center_y':.1}
-            on_press: root.manager.current = 'camera'
-            background_color: 255/255, 210/255, 20/255, 1
+            Button:
+                size_hint:0.2,0.3
+                pos_hint : {'center_x': .05, 'center_y':.1}
+                on_press: root.manager.current = 'camera'
+                background_color: 255/255, 210/255, 20/255, 1
 
-            Image:
-                source: 'images/camera.png'
-                size: self.parent.size
-                pos: self.parent.pos
+                Image:
+                    source: 'images/camera.png'
+                    size: self.parent.size
+                    pos: self.parent.pos
 
-        Button:
-            size_hint:0.2,0.3
-            pos_hint : {'center_x': .05, 'center_y':.1}
-            on_press: root.manager.current = 'profile'
-            background_color: 255/255, 210/255, 20/255, 1
+            Button:
+                size_hint:0.2,0.3
+                pos_hint : {'center_x': .05, 'center_y':.1}
+                on_press: root.manager.current = 'profile'
+                background_color: 255/255, 210/255, 20/255, 1
 
-            Image:
-                source: 'images/profile_icon.png'
-                size: self.parent.size
-                pos: self.parent.pos
+                Image:
+                    source: 'images/profile_icon.png'
+                    size: self.parent.size
+                    pos: self.parent.pos
 
-        Button:
-            size_hint:0.2,0.3
-            pos_hint : {'center_x': .05, 'center_y':.1}
-            on_press: root.manager.current = 'settings'
-            background_color: 255/255, 210/255, 20/255, 1
+            Button:
+                size_hint:0.2,0.3
+                pos_hint : {'center_x': .05, 'center_y':.1}
+                on_press: root.manager.current = 'settings'
+                background_color: 255/255, 210/255, 20/255, 1
 
-            Image:
-                source: 'images/settings.png'
-                size: self.parent.size
-                pos: self.parent.pos
+                Image:
+                    source: 'images/settings.png'
+                    size: self.parent.size
+                    pos: self.parent.pos
 
 
 <ProfileScreen>
