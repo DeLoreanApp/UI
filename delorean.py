@@ -115,6 +115,16 @@ class GameFinalPage(Screen):
         Window.size = main_window_size
     pass
 
+class ChangeMail(Screen):
+    pass
+
+class ChangePass(Screen):
+    pass
+
+class ChangeLanguge(Screen):
+    pass
+
+
 class DeLoreanApp(App):
     def build(self):
         # Create the screen manager
@@ -132,6 +142,10 @@ class DeLoreanApp(App):
         sm.add_widget(FriendsList(name='friends'))
         sm.add_widget(MyVisits(name='myvisits'))
         sm.add_widget(SettingsScreen(name='settings'))
+        sm.add_widget(ChangeMail(name='changemail'))
+        sm.add_widget(ChangePass(name='changpass'))
+        sm.add_widget(ChangeLanguge(name='changlang'))
+
         sm.add_widget(GameHomePage(name="game_home"))
         sm.add_widget(Q1(name="q1"))
         sm.add_widget(Q2(name="q2"))

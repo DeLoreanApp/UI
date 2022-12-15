@@ -699,6 +699,188 @@
                 text: 'Their points'
                 size_hint_x: 0.5
 
+
+<ChangeMail>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
+
+
+        Button:
+            size_hint:0.2,0.4
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+
+        Label:
+            text: 'Email'
+            font_size : 40
+            bold :True
+
+
+        Label:
+            text: 'Enter your current email'
+            halign: 'left'
+            size_hint: 0.67, 0.5
+
+        TextInput:
+            multiline:False
+            id: current_email
+            hint_text:'Curretn email'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+
+        Label:
+            text: 'Enter your new email'
+            halign: 'left'
+            size_hint: 0.67, 0.5
+
+        TextInput:
+            multiline:False
+            id: new_email
+            hint_text:'New email'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+
+        Label:
+            text: 'Repeat your new email'
+            halign: 'left'
+            size_hint: 0.67, 0.5
+
+        TextInput:
+            multiline:False
+            id: new_repeat_email
+            hint_text:'Repeat new email'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+
+        Button:
+            text: 'Change email'
+            on_press: root.manager.current = 'settings'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            background_color: 152/255, 23/255, 103/255, 1
+
+
+
+
+<ChangePass>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
+
+        Button:
+            size_hint:0.2,0.4
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+
+
+        Label:
+            text: 'Password'
+            font_size : 40
+            bold :True
+
+
+        Label:
+            text: 'Enter your current password'
+            halign: 'left'
+            size_hint: 0.67, 0.5
+
+        TextInput:
+            multiline:False
+            id: current_pass
+            hint_text:'Current password'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+
+        Label:
+            text: 'Enter your new password'
+            halign: 'left'
+            size_hint: 0.67, 0.5
+
+        TextInput:
+            multiline:False
+            id: new_pass
+            hint_text:'New password'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+
+        Label:
+            text: 'Repeat your new password'
+            halign: 'left'
+            size_hint: 0.67, 0.5
+
+        TextInput:
+            multiline:False
+            id: new_repeat_pass
+            hint_text:'Repeat new password'
+            halign: "center"
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            height:0.5
+
+        Button:
+            text: 'Change Password'
+            on_press: root.manager.current = 'settings'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+            size_hint: 0.5, 0.5
+            background_color: 152/255, 23/255, 103/255, 1
+
+<ChangeLanguge>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        spacing: 10
+        padding: 50
+
+        Button:
+            size_hint:0.2,0.4
+            pos_hint : {'center_x': .05, 'center_y':.1}
+            on_press: root.manager.current = 'settings'
+            background_color: 0,0,0,0
+
+            Image:
+                source: 'images/back.png'
+                size: self.parent.size
+                pos: self.parent.pos
+        Label:
+            text: 'Language'
+            font_size : 40
+            bold :True
+
+
+
+
+
 <SettingsScreen>
     BoxLayout:
         orientation: 'vertical'
@@ -709,6 +891,42 @@
 
         Label:
             text: 'Settings'
+            font_size : 40
+            bold :True
+
+        Button:
+            text: 'Change email'
+            pos_hint : {'center_x': 0.5, 'center_y': 0.705}
+            on_press: root.manager.current = 'changemail'
+            size_hint:0.5, 0.5
+            background_color: 0,0,0,0
+
+        Button:
+            text: 'Change password'
+            pos_hint : {'center_x': 0.5, 'center_y': 0.705}
+            on_press: root.manager.current = 'changpass'
+            size_hint:0.5, 0.5
+            background_color: 0,0,0,0
+        Button:
+            text: 'Change language'
+            pos_hint : {'center_x': 0.5, 'center_y': 0.705}
+            on_press: root.manager.current = 'changlang'
+            size_hint:0.5, 0.5
+            background_color: 0,0,0,0
+        Label:
+            text: 'Notifications'
+
+
+
+
+
+
+
+
+
+
+
+
 
     GridLayout:
         cols: 5
