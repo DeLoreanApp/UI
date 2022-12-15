@@ -6,7 +6,10 @@ from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from api_calls import APICalls
 from kivy.properties import StringProperty
 from kivy_garden.mapview import MapView
+from kivy.uix.button import Button
+from kivy.uix.label import Label
 from kivy.app import App
+import time
 
 
 Builder.load_file('delorean.kv')
@@ -71,6 +74,20 @@ class CameraScreen(Screen):
         global main_window_size
         Window.size = (412, 732)
 
+    def capture(self):
+        '''
+        Function to capture the images and give them the names
+        according to their captured time and date.
+        '''
+        camera = self.ids['camera']
+        timestr = time.strftime("%Y%m%d_%H%M%S")
+        camera.export_to_png("IMG_{}.png".format(timestr))
+        print("Captured")
+
+    def create_button(self):
+        play = Button(text="Play Game")
+        self.add_button(play)
+
     pass
 
 
@@ -108,6 +125,7 @@ class Q2(Screen):
 
 class Q3(Screen):
     pass
+
 
 class GameFinalPage(Screen):
     def reset_window_size(self):

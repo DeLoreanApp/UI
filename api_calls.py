@@ -16,3 +16,7 @@ class APICalls:
     def get_user(self, id):
         r = requests.get(self.URL.format(f'/user/{id}'))
         return r.json()
+
+    def get_leaderboard(self):
+        r = requests.get(self.URL.format('/leaderboard'))
+        return r.json()
