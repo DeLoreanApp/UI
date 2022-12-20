@@ -64,12 +64,12 @@ class HomeScreen(Screen):
 
 class LeaderboardScreen(Screen):
         def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.layout = GridLayout(cols=2, padding=30, size_hint_y=1)
-        self.layout.bind(minimum_height=self.layout.setter("height"))
-        self.add_widget(self.layout)
+            super().__init__(**kwargs)
+            self.layout = GridLayout(cols=2, padding=30, size_hint_y=1)
+            self.layout.bind(minimum_height=self.layout.setter("height"))
+            self.add_widget(self.layout)
 
-        players_count = [i for i in range(1,11)]
+            players_count = [i for i in range(1,11)]
 
         for i in players_count:
             username = Label(text=f"player")
