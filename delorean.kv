@@ -507,7 +507,7 @@
         Button:
             size_hint:0.3,0.3
             pos_hint : {'center_x': 0.95, 'center_y':.1}
-            on_press: root.manager.current = 'settings'
+            on_press: root.manager.current = 'editprofile'
             background_color: 0,0,0,0
 
             Image:
@@ -612,7 +612,16 @@
 
 
 
+<EditProfile>
+    BoxLayout:
+        orientation: 'vertical'
+        pos: self.pos
+        size: root.size
+        id: test2
 
+        Label:
+            text:'Edit profile info'
+            font_size:20
 
 <FriendsList>
     BoxLayout:
@@ -734,7 +743,7 @@
         TextInput:
             multiline:False
             id: current_email
-            hint_text:'Current email'
+            hint_text:'Curretn email'
             halign: "center"
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
@@ -873,24 +882,8 @@
                 pos: self.parent.pos
         Label:
             text: 'Language'
-            font_size : 35
+            font_size : 40
             bold :True
-
-        Label:
-            text: 'English ✔'
-            font_size : 20
-
-        Label:
-            text: 'Spanish'
-            font_size : 20
-
-        Label:
-            text: 'German'
-            font_size : 20
-
-        Label:
-            text: 'French'
-            font_size : 20
 
 
 
@@ -929,9 +922,7 @@
             size_hint:0.5, 0.5
             background_color: 0,0,0,0
         Label:
-            text: 'Notifications    ON'
-            pos_hint : {'center_x': 0.5, 'center_y': 0.705}
-            size_hint:0.5, 0.5
+            text: 'Notifications'
 
 
 
