@@ -99,8 +99,6 @@ class ProfileScreen(Screen):
         self.email = f"{user['email']}"
 
 
-class EditProfile(Screen):
-    pass
 
 
 class FriendsList(Screen):
@@ -156,7 +154,7 @@ class DeLoreanApp(App):
         sm.add_widget(MapScreen(name='map'))
         sm.add_widget(CameraScreen(name='camera'))
         sm.add_widget(ProfileScreen(name='profile'))
-        sm.add_widget(EditProfile(name='editprofile'))
+
         sm.add_widget(FriendsList(name='friends'))
         sm.add_widget(MyVisits(name='myvisits'))
         sm.add_widget(SettingsScreen(name='settings'))
