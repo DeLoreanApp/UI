@@ -93,24 +93,24 @@ class MapScreen(Screen):
 
 
 class CameraScreen(Screen):
-    #
-    # def change_window_size(self):
-    #     global main_window_size
-    #     Window.size = (412, 732)
-    #
-    # def capture(self):
-    #     """
-    #     Function to capture the images and give them the names
-    #     according to their captured time and date.
-    #     """
-    #     camera = self.ids['camera']
-    #     timestr = time.strftime("%Y%m%d_%H%M%S")
-    #     camera.export_to_png("IMG_{}.png".format(timestr))
-    #     print("Captured")
-    #
-    # def create_button(self):
-    #     play = Button(text="Play Game")
-    #     self.add_button(play)
+
+    def change_window_size(self):
+        global main_window_size
+        Window.size = (412, 732)
+
+    def capture(self):
+        """
+        Function to capture the images and give them the names
+        according to their captured time and date.
+        """
+        camera = self.ids['camera']
+        timestr = time.strftime("%Y%m%d_%H%M%S")
+        camera.export_to_png("IMG_{}.png".format(timestr))
+        print("Captured")
+
+    def create_button(self):
+        play = Button(text="Play Game")
+        self.add_button(play)
 
     pass
 
