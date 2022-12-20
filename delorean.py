@@ -14,6 +14,7 @@ from kivy.uix.label import Label
 from kivy.app import App
 import time
 from kivy.uix.label import Label
+from kivy.uix.popup import Popup
 
 Builder.load_file('delorean.kv')
 Builder.load_file('game.kv')
@@ -21,6 +22,7 @@ Builder.load_file('game.kv')
 global user
 main_window_size = Window.size
 user = {}
+sm = ScreenManager()
 
 
 class WelcomeScreen(Screen):
@@ -37,13 +39,29 @@ class LoginScreen(Screen):
         password = self.ids.password.text
 
         try:
-
             global user
-            user = APICalls().login({'email_or_username': username, 'password': password})['user']
-            print('user =', user)
+            response = APICalls().login({'email_or_username': username, 'password': password})  # Get the whole response
+            if response['status'] == 'success':
+                user = response['user']
+                print('user =', user)
+                sm.switch_to(sm.get_screen(name='homescreen'))
+            else:  # Error handling from the API (status = 'fail')
+
+                self.show_error_popup(response['error'])
 
         except KeyError:
-            print("lol")
+            # Display an error message if the 'user' key is not found in the response from the API
+            self.show_error_popup("Invalid username or password")
+        except ConnectionError:
+            # Display an error message if there is a problem connecting to the API
+            self.show_error_popup("Could not connect to server")
+        except Exception as e:
+            # Catch any other exceptions and display a generic error message
+            self.show_error_popup("An error occurred: {}".format(e))
+
+    def show_error_popup(self, error_message):
+        popup = Popup(title="Error", content=Label(text=error_message), size_hint=(None, None), size=(400, 400))
+        popup.open()
 
 
 class RegisterScreen(Screen):
@@ -54,10 +72,30 @@ class RegisterScreen(Screen):
         password_confirm = self.ids.password_confirm.text
 
         if password == password_confirm:
-            global user
-            user = APICalls().register({"username": username, "email": email, "password": password})['user']
-            print('user =', user)
+            try:
+                global user
+                response = APICalls().register({"username": username, "email": email, "password": password})
+                if response['status'] == 'success':
+                    user = response['user']
+                    print('user =', user)
+                else:  # Error handling from the API (status == 'fail')
+                    self.show_error_popup(response['error'])
+            except KeyError:
+                # Display an error message if the 'user' key is not found in the response from the API
+                self.show_error_popup("Error creating account")
+            except ConnectionError:
+                # Display an error message if there is a problem connecting to the API
+                self.show_error_popup("Could not connect to server")
+            except Exception as e:
+                # Catch any other exceptions and display a generic error message
+                self.show_error_popup("An error occurred: {}".format(e))
+        else:
+            # Display an error message if the passwords do not match
+            self.show_error_popup("Passwords do not match")
 
+    def show_error_popup(self, error_message):
+        popup = Popup(title="Error", content=Label(text=error_message), size_hint=(None, None), size=(400, 400))
+        popup.open()
 
 class HomeScreen(Screen):
     pass
@@ -179,7 +217,7 @@ class ChangeLanguge(Screen):
 class DeLoreanApp(App):
     def build(self):
         # Create the screen manager
-        sm = ScreenManager()
+        # sm = ScreenManager()
         sm.add_widget(WelcomeScreen(name='welcome'))
         sm.add_widget(MenuScreen(name='menu'))
         sm.add_widget(LoginScreen(name='login'))
