@@ -8,6 +8,8 @@ from kivy.properties import StringProperty
 from kivy_garden.mapview import MapView
 from kivy.uix.button import Button
 from kivy.uix.label import Label
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
 from kivy.app import App
 import time
 
