@@ -1,5 +1,8 @@
+import random
 from kivy.app import App
 from kivy.core.window import Window
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.scrollview import ScrollView
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
@@ -10,7 +13,7 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.app import App
 import time
-
+from kivy.uix.label import Label
 
 Builder.load_file('delorean.kv')
 Builder.load_file('game.kv')
@@ -75,10 +78,10 @@ class CameraScreen(Screen):
         Window.size = (412, 732)
 
     def capture(self):
-        '''
+        """
         Function to capture the images and give them the names
         according to their captured time and date.
-        '''
+        """
         camera = self.ids['camera']
         timestr = time.strftime("%Y%m%d_%H%M%S")
         camera.export_to_png("IMG_{}.png".format(timestr))
@@ -94,6 +97,7 @@ class CameraScreen(Screen):
 class ProfileScreen(Screen):
     username = StringProperty()
     email = StringProperty()
+
     def get_user(self):
         self.username = f"@{user['username']}"
         self.email = f"{user['email']}"
@@ -114,14 +118,18 @@ class MyVisits(Screen):
 class SettingsScreen(Screen):
     pass
 
+
 class GameHomePage(Screen):
     pass
+
 
 class Q1(Screen):
     pass
 
+
 class Q2(Screen):
     pass
+
 
 class Q3(Screen):
     pass
@@ -131,13 +139,17 @@ class GameFinalPage(Screen):
     def reset_window_size(self):
         global main_window_size
         Window.size = main_window_size
+
     pass
+
 
 class ChangeMail(Screen):
     pass
 
+
 class ChangePass(Screen):
     pass
+
 
 class ChangeLanguge(Screen):
     pass
