@@ -8,6 +8,8 @@ from kivy.properties import StringProperty
 from kivy_garden.mapview import MapView
 from kivy.uix.button import Button
 from kivy.uix.label import Label
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
 from kivy.app import App
 import time
 
@@ -61,7 +63,19 @@ class HomeScreen(Screen):
 
 
 class LeaderboardScreen(Screen):
-    pass
+        def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.layout = GridLayout(cols=2, padding=30, size_hint_y=1)
+        self.layout.bind(minimum_height=self.layout.setter("height"))
+        self.add_widget(self.layout)
+
+        players_count = [i for i in range(1,11)]
+
+        for i in players_count:
+            username = Label(text=f"player")
+            rank = Label(text=f"score{random.randint(0,1000)}")
+            self.layout.add_widget(username)
+            self.layout.add_widget(rank)
 
 
 class MapScreen(Screen):
@@ -99,8 +113,6 @@ class ProfileScreen(Screen):
         self.email = f"{user['email']}"
 
 
-class EditProfile(Screen):
-    pass
 
 
 class FriendsList(Screen):
@@ -156,7 +168,7 @@ class DeLoreanApp(App):
         sm.add_widget(MapScreen(name='map'))
         sm.add_widget(CameraScreen(name='camera'))
         sm.add_widget(ProfileScreen(name='profile'))
-        sm.add_widget(EditProfile(name='editprofile'))
+
         sm.add_widget(FriendsList(name='friends'))
         sm.add_widget(MyVisits(name='myvisits'))
         sm.add_widget(SettingsScreen(name='settings'))
