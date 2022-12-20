@@ -66,7 +66,7 @@ class HomeScreen(Screen):
 class LeaderboardScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        boxlayout = BoxLayout(orientation='vertical')
+        boxlayout = BoxLayout(orientation='vertical', padding=20)
         self.add_widget(boxlayout)
         label = Label(text='Leaderboard', bold=True, size_hint_y=0.05, font_size=40)
         boxlayout.add_widget(label)
