@@ -12,6 +12,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.app import App
 import time
+import random
 
 
 Builder.load_file('delorean.kv')
@@ -63,7 +64,7 @@ class HomeScreen(Screen):
 
 
 class LeaderboardScreen(Screen):
-        def __init__(self, **kwargs):
+     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.layout = GridLayout(cols=2, padding=30, size_hint_y=1)
         self.layout.bind(minimum_height=self.layout.setter("height"))
