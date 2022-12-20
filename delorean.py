@@ -104,7 +104,7 @@ class HomeScreen(Screen):
 class LeaderboardScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        boxlayout = BoxLayout(orientation='vertical')
+        boxlayout = BoxLayout(orientation='vertical', padding=20)
         self.add_widget(boxlayout)
         label = Label(text='Leaderboard', bold=True, size_hint_y=0.05, font_size=40)
         boxlayout.add_widget(label)
@@ -203,14 +203,26 @@ class GameFinalPage(Screen):
 
 
 class ChangeMail(Screen):
-    pass
+    def change_email(self):
+        current_email = self.ids.current_email.text
+        new_email = self.ids.new_email.text
+        check_email = self.ids.new_repeat_email.text
+        global user
+        user_id = user['user_id']
+        old_email = user['email']
+        if current_email == old_email and new_email == check_email:
+            user = APICalls().change_email(user_id, {'new_email': new_email})['user']
 
 
 class ChangePass(Screen):
-    pass
+    def change_password(self):
+        new_password = self.ids.new_pass.text
+        new_password_confirm = self.ids.new_repeat_pass.text
+        if new_password == new_password_confirm:
+            APICalls().change_password(user['user_id'], {'password': new_password})
 
 
-class ChangeLanguge(Screen):
+class ChangeLanguage(Screen):
     pass
 
 
@@ -233,7 +245,7 @@ class DeLoreanApp(App):
         sm.add_widget(SettingsScreen(name='settings'))
         sm.add_widget(ChangeMail(name='changemail'))
         sm.add_widget(ChangePass(name='changpass'))
-        sm.add_widget(ChangeLanguge(name='changlang'))
+        sm.add_widget(ChangeLanguage(name='changlang'))
 
         sm.add_widget(GameHomePage(name="game_home"))
         sm.add_widget(Q1(name="q1"))

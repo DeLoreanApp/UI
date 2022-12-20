@@ -20,3 +20,11 @@ class APICalls:
     def get_leaderboard(self):
         r = requests.get(self.URL.format('/leaderboard'))
         return r.json()
+
+    def change_email(self, id, params):
+        r = requests.put(self.URL.format(f'/user/{id}/email'), params=params)
+        return r.json()
+
+    def change_password(self, id, params):
+        r = requests.put(self.URL.format(f'/user/{id}/password'), params=params)
+        return r.json()

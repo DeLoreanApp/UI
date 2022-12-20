@@ -770,6 +770,7 @@
 
         Button:
             text: 'Change email'
+            on_press: root.change_email()
             on_press: root.manager.current = 'settings'
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
@@ -817,6 +818,8 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             height:0.5
+            password: True
+            password_mask: '*'
 
         Label:
             text: 'Enter your new password'
@@ -831,6 +834,8 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             height:0.5
+            password: True
+            password_mask: '*'
 
         Label:
             text: 'Repeat your new password'
@@ -845,15 +850,18 @@
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             height:0.5
+            password: True
+            password_mask: '*'
 
         Button:
             text: 'Change Password'
+            on_press: root.change_password()
             on_press: root.manager.current = 'settings'
             pos_hint: {'center_x': 0.5, 'center_y': 0.705}
             size_hint: 0.5, 0.5
             background_color: 152/255, 23/255, 103/255, 1
 
-<ChangeLanguge>
+<ChangeLanguage>
     BoxLayout:
         orientation: 'vertical'
         pos: self.pos
@@ -915,18 +923,6 @@
         Label:
             text: 'Notifications'
 
-
-
-
-
-
-
-
-
-
-
-
-
     GridLayout:
         cols: 5
         size_hint: 1, 0.05
@@ -985,7 +981,3 @@
                 source: 'images/settings.png'
                 size: self.parent.size
                 pos: self.parent.pos
-
-
-
-
