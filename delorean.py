@@ -1,19 +1,19 @@
 from kivy.app import App
 from kivy.core.window import Window
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.scrollview import ScrollView
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
+from kivy.uix.screenmanager import ScreenManager, Screen
 from api_calls import APICalls
 from kivy.properties import StringProperty
 from kivy_garden.mapview import MapView
 from kivy.uix.button import Button
 from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
 from kivy.app import App
 import time
-import random
-
+from kivy.uix.label import Label
 
 Builder.load_file('delorean.kv')
 Builder.load_file('game.kv')
@@ -64,19 +64,28 @@ class HomeScreen(Screen):
 
 
 class LeaderboardScreen(Screen):
-     def __init__(self, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.layout = GridLayout(cols=2, padding=30, size_hint_y=1)
-        self.layout.bind(minimum_height=self.layout.setter("height"))
-        self.add_widget(self.layout)
+        boxlayout = BoxLayout(orientation='vertical')
+        self.add_widget(boxlayout)
+        label = Label(text='Leaderboard', bold=True, size_hint_y=0.05, font_size=40)
+        boxlayout.add_widget(label)
+        layout = GridLayout(cols=3,padding=30, size_hint_y=0.95)
+        boxlayout.add_widget(layout)
 
-        players_count = [i for i in range(1,11)]
+        leaders = APICalls().get_leaderboard()
 
-        for i in players_count:
-            username = Label(text=f"player")
-            rank = Label(text=f"score{random.randint(0,1000)}")
-            self.layout.add_widget(username)
-            self.layout.add_widget(rank)
+        rank = 1
+        user = leaders['leaderboard']
+        for user in leaders['leaderboard']:
+            if rank > 10:
+                break
+            username = Label(text=f"{user['username']}")
+            score = Label(text=f"{user['score']}")
+            layout.add_widget(Label(text=str(rank)))
+            layout.add_widget(username)
+            layout.add_widget(score)
+            rank += 1
 
 
 class MapScreen(Screen):
@@ -90,10 +99,10 @@ class CameraScreen(Screen):
         Window.size = (412, 732)
 
     def capture(self):
-        '''
+        """
         Function to capture the images and give them the names
         according to their captured time and date.
-        '''
+        """
         camera = self.ids['camera']
         timestr = time.strftime("%Y%m%d_%H%M%S")
         camera.export_to_png("IMG_{}.png".format(timestr))
@@ -109,11 +118,14 @@ class CameraScreen(Screen):
 class ProfileScreen(Screen):
     username = StringProperty()
     email = StringProperty()
+
     def get_user(self):
         self.username = f"@{user['username']}"
         self.email = f"{user['email']}"
 
 
+class EditProfile(Screen):
+    pass
 
 
 class FriendsList(Screen):
@@ -127,14 +139,18 @@ class MyVisits(Screen):
 class SettingsScreen(Screen):
     pass
 
+
 class GameHomePage(Screen):
     pass
+
 
 class Q1(Screen):
     pass
 
+
 class Q2(Screen):
     pass
+
 
 class Q3(Screen):
     pass
@@ -144,13 +160,17 @@ class GameFinalPage(Screen):
     def reset_window_size(self):
         global main_window_size
         Window.size = main_window_size
+
     pass
+
 
 class ChangeMail(Screen):
     pass
 
+
 class ChangePass(Screen):
     pass
+
 
 class ChangeLanguge(Screen):
     pass
@@ -169,7 +189,7 @@ class DeLoreanApp(App):
         sm.add_widget(MapScreen(name='map'))
         sm.add_widget(CameraScreen(name='camera'))
         sm.add_widget(ProfileScreen(name='profile'))
-
+        sm.add_widget(EditProfile(name='editprofile'))
         sm.add_widget(FriendsList(name='friends'))
         sm.add_widget(MyVisits(name='myvisits'))
         sm.add_widget(SettingsScreen(name='settings'))
