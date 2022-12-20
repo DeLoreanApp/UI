@@ -1,3 +1,4 @@
 Kivy==2.1.0
 Kivy-Garden==0.1.5
 kivy-garden.mapview==1.0.6
+opencv-python==4.6.0.66
