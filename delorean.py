@@ -93,24 +93,24 @@ class MapScreen(Screen):
 
 
 class CameraScreen(Screen):
-
-    def change_window_size(self):
-        global main_window_size
-        Window.size = (412, 732)
-
-    def capture(self):
-        """
-        Function to capture the images and give them the names
-        according to their captured time and date.
-        """
-        camera = self.ids['camera']
-        timestr = time.strftime("%Y%m%d_%H%M%S")
-        camera.export_to_png("IMG_{}.png".format(timestr))
-        print("Captured")
-
-    def create_button(self):
-        play = Button(text="Play Game")
-        self.add_button(play)
+    #
+    # def change_window_size(self):
+    #     global main_window_size
+    #     Window.size = (412, 732)
+    #
+    # def capture(self):
+    #     """
+    #     Function to capture the images and give them the names
+    #     according to their captured time and date.
+    #     """
+    #     camera = self.ids['camera']
+    #     timestr = time.strftime("%Y%m%d_%H%M%S")
+    #     camera.export_to_png("IMG_{}.png".format(timestr))
+    #     print("Captured")
+    #
+    # def create_button(self):
+    #     play = Button(text="Play Game")
+    #     self.add_button(play)
 
     pass
 
@@ -165,14 +165,26 @@ class GameFinalPage(Screen):
 
 
 class ChangeMail(Screen):
-    pass
+    def change_email(self):
+        current_email = self.ids.current_email.text
+        new_email = self.ids.new_email.text
+        check_email = self.ids.new_repeat_email.text
+        global user
+        user_id = user['user_id']
+        old_email = user['email']
+        if current_email == old_email and new_email == check_email:
+            user = APICalls().change_email(user_id, {'new_email': new_email})['user']
 
 
 class ChangePass(Screen):
-    pass
+    def change_password(self):
+        new_password = self.ids.new_pass.text
+        new_password_confirm = self.ids.new_repeat_pass.text
+        if new_password == new_password_confirm:
+            APICalls().change_password(user['user_id'], {'password': new_password})
 
 
-class ChangeLanguge(Screen):
+class ChangeLanguage(Screen):
     pass
 
 
@@ -195,7 +207,7 @@ class DeLoreanApp(App):
         sm.add_widget(SettingsScreen(name='settings'))
         sm.add_widget(ChangeMail(name='changemail'))
         sm.add_widget(ChangePass(name='changpass'))
-        sm.add_widget(ChangeLanguge(name='changlang'))
+        sm.add_widget(ChangeLanguage(name='changlang'))
 
         sm.add_widget(GameHomePage(name="game_home"))
         sm.add_widget(Q1(name="q1"))
